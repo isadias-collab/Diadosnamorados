@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Marlon</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: pink;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    h1 {
+      color: deeppink;
+      font-size: 3em;
+      text-shadow: 2px 2px white;
+      margin-bottom: 10px;
+    }
+
+    img {
+      max-width: 300px;
+    }
+
+    .gif-macaquinhos {
+      margin-top: 15px;
+      border: 5px dotted hotpink;
+      border-radius: 20px;
+      padding: 10px;
+      background-color: white;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: float 2s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-150px) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Te Amo, seu cocô 💖</h1>
+  <img src="img/imgcoco.png" alt="Amor da minha vida">
+
+  <!-- GIF dos macaquinhos aqui -->
+  <div class="gif-macaquinhos">
+    <img src="https://media.tenor.com/f7jOXd3DBdoAAAAM/macaquinhos-se-beijando.gif" alt="Macaquinhos se beijando" style="max-width: 250px;">
+  </div>
+
+  <script>
+    const cores = ['red', 'hotpink', 'deeppink', 'magenta', 'purple'];
+
+    document.addEventListener('mousemove', function(e) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = e.pageX + 'px';
+      heart.style.top = e.pageY + 'px';
+      heart.style.color = cores[Math.floor(Math.random() * cores.length)];
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
+
+
